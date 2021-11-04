@@ -1,0 +1,8 @@
+#For logging it's better to use logback-spring.xml it handles log configuration better.
+
+#logging:
+#  file:
+#    name: /tmp/myApp.log
+#    max-size: 20MB
+#    history: 30
+#    total-size-cap: 3GB

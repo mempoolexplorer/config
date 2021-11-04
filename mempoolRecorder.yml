@@ -1,0 +1,60 @@
+# Service Discovery
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+
+#    serviceUrl:
+#      defaultZone: http://172.18.0.5:8761/eureka/
+
+#Profiles and msgQueue
+spring:
+#  profiles:
+#    active:
+#      prod,mainNet
+  cloud:
+    stream:
+      bindings:
+        txMemPoolEvents:
+          #destination: memPool.tx.events
+          content-type: application/json
+          group: mempoolRecorder
+      kafka:
+        binder:
+#          zkNodes: localhost
+#          brokers: localhost
+          configuration:
+            max.request.size: 4000000
+  output:
+    ansi:
+      enabled: always
+
+
+# Spring actuator configuration.
+management:
+#  server:
+#    address: 172.18.0.6
+#    port: 8081
+  endpoints:
+    jmx.exposure.exclude: "*"
+    web.exposure.include: "*"
+  health:
+    defaults.enabled: true
+    mongo.enabled: true
+    diskspace.enabled: true
+    show-components: always
+    show-details: always
+  configprops.enabled: true
+
+#server.port: 8080
+
+# Enable shutdown (BE CAREFUL)
+#management.endpoints.shutdown.enabled: true
+
+#logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+
+#mempoolRecorder:

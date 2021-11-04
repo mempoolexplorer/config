@@ -1,0 +1,79 @@
+
+# bitcoind client configuration.
+bitcoind:
+#  host: 192.168.1.38
+#  port: 8332 #mainnet
+#testNet
+#  port: 18332
+  # zmqPort: 29000
+  user: anon
+  password: anon
+
+#Profiles and msgQueue
+spring:
+#  profiles:
+#    active:
+#      prod,mainNet
+  cloud:
+    stream:
+      bindings:
+        txMemPoolEvents:
+            #destination: memPool.tx.events
+            content-type: application/json
+      kafka:
+        binder:
+#          zkNodes: localhost
+#          brokers: localhost
+          configuration:
+            max.request.size: 4000000
+  output:
+    ansi:
+      enabled: always
+
+
+# Service Discovery
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+#    serviceUrl:
+#      defaultZone: http://172.18.0.5:8761/eureka/
+
+
+# Spring actuator configuration.
+management:
+#  server:
+#    address: 172.18.0.3
+#    port: 8081
+  endpoints:
+    jmx.exposure.exclude: "*"
+    web.exposure.include: "*"
+  health:
+    defaults.enabled: true
+    mongo.enabled: true
+    diskspace.enabled: true
+    show-components: always
+    show-details: always
+  configprops.enabled: true
+
+#mainnet
+#server.port: 8080
+#testnet
+#server.port: 8088
+
+
+# Enable shutdown (BE CAREFUL)
+#management.endpoints.shutdown.enabled: true
+
+#mainnet
+#spring.data.mongodb.uri: mongodb://172.18.0.2:27017/memPool
+
+#logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+#logging.level.org.apache.http.wire: DEBUG
+
+bitcoindadapter:
+  refreshBTIntervalMilliSec: 5000
