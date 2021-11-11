@@ -66,10 +66,9 @@ management:
 
 txmempool:
   liveMiningQueueRefreshEachMillis: 5000
-  miningQueueNumTxs: 1000000
   miningQueueMaxNumBlocks: 1000
   liveMiningQueueMaxTxs: 1000000
-  liveMiningQueueGraphSize: 500
+  maxTxsToCalculateTxsGraphs: 30000 
   maxLiveDataBufferSize: 100
   numTimesTxIgnoredToRaiseAlarm: 3
   totalSatVBLostToRaiseAlarm: 3
