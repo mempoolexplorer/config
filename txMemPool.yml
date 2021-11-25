@@ -71,6 +71,6 @@ txmempool:
   maxTxsToCalculateTxsGraphs: 30000
   maxLiveDataBufferSize: 100
   numTimesTxIgnoredToRaiseAlarm: 3
-  totalSatVBLostToRaiseAlarm: 3
+  totalSatVBLostToRaiseAlarm: 0
   numTxMinedButNotInMemPoolToRaiseAlarm: 10
   
