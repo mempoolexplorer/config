@@ -1,9 +1,10 @@
 #Cuidado que los nombres de los servicios deben estar en MINUSCULAS
 zuul:
-  ignored-services: '*'
+  ignored-services: "*"
   #prefix: /api
   routes:
- #   bitcoindadapter: /bitcoindAdapter/**
+    bitcoindadapter: /bitcoindAdapter/**
     txmempool: /txmempool/**
 server:
   port: 8443
+
