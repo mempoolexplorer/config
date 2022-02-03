@@ -74,4 +74,4 @@ management:
 bitcoindadapter:
   refreshBTIntervalMilliSec: 5000
   refreshSmartFeesIntervalMilliSec: 60000
-refreshBCIIntervalMilliSec: 60000
+  refreshBCIIntervalMilliSec: 60000
